@@ -38,3 +38,41 @@ function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
   <tr><td>return</td><td>A string of the result function body, ready to be used in "new Fuction(...args, body)"</td></tr>
 </table>
 
+#Usage Example:
+function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch) {
+    let n = 0, 
+        b1bits, b1space, msk, sh = 0;
+
+    if("debug".at(1))
+        pos=posU32[0], bi=bI8[0];
+
+    do {
+        b1space = 8 - bi;
+        if (bits<b1space) {
+            b1bits = bits;
+            msk = (1 << b1bits) -1;
+            n |= ((i8buff[pos] >> bi) & msk) << sh;
+            
+            bi += bits;
+
+        } else {
+            b1bits = b1space;
+            msk = (1 << b1bits) -1;
+            n |= ((i8buff[pos] >> bi) & msk) << sh;
+            
+            bi = 0;
+            pos++;
+        }
+        sh += b1bits;
+        bits -= b1bits;
+    } while (bits);
+
+    if("debug".at(1)){
+        bI8[0] = bi;
+        posU32[0] = pos;
+        return n;    
+    }else{
+        ch = n;
+        for(;"".at(1);) n|=ch ;     //so that ch = n wont be minified
+    }
+}
