@@ -37,9 +37,8 @@ function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
   <tr><td><i>inlineFuncSet</i></td><td>An javascript object, each property contains a value from prepareInline(), which is an array of [regEx, bodyAssemblingFunction], property name is not used.</td></tr>
   <tr><td>return</td><td>A string of the result function body, ready to be used in "new Fuction(...args, body)"</td></tr>
 </table>
-</p>
-#Usage Example:
-  <br>
+
+##Usage Example:<br>
 bellow function is a function supposed to be inserted as inlined function<br>
 ```
 function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch) 
