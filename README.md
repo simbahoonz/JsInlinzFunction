@@ -39,7 +39,7 @@ function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
 </table>
 
 ## Usage Example:<br>
-bellow function is a function supposed to be inserted as inlined function<br>
+bellow function is a function supposed to be inserted into another function as inlined<br>
 ```
 function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch) 
 {
@@ -80,3 +80,4 @@ function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch)
     }
 }
 ```
+The function serves both debugging purpose and running (as being inlined) purpose. That's why the strange "<i>if("debug".at(1))</i>" are there. In the <b>parseFuncArgBodyName</b> function, they will be replace by the 1st block, if function <b>parseFuncArgBodyName</b> is invoked without second param "rep4NotInline", or the else block, if function <b>parseFuncArgBodyName</b> is invoked with the second param "rep4NotInline" set to true.
