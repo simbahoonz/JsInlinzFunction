@@ -3,7 +3,7 @@ A function set to make inlinzed function using Javascript native new Function().
 Normally performance is the main reason of doing this. Inlined function can avoid the function call overload.<br>
 <br>
 It's pulled from my other libarary of a fast LZW compress/uncompress implementation.
-<p>
+<br>
 function <b>parseFuncArgBodyName</b>(<i>func</i>, <i>rep4NotInline</i>)<br>
 <table>
   <tr><td><i>func</i></td><td>a javascript function to be parsed as string</td></tr>
@@ -19,7 +19,7 @@ function <b>parseFuncArgBodyName</b>(<i>func</i>, <i>rep4NotInline</i>)<br>
       &nbsp;&nbsp;funcname - the function name, might be empty
   </td></tr>
 </table>
-<p>
+<br>
 function <b>prepareInline</b>(<i>func</i>, <i>asFuncname</i>)
 <table><tr><td>func</td><td>a javascript function to be prepared for </td></tr>
 <tr><td>asFuncname</td><td>this param is used to form a RegEx to search for the supposed to be inlined function invokes.</td></tr>
@@ -30,7 +30,7 @@ function <b>prepareInline</b>(<i>func</i>, <i>asFuncname</i>)
     &nbsp;&nbsp;bodyAssemblingFunction - a function that put the arguments into the body, to <b>inlinz</b> the function
   </td></tr>
 </table>
-<p>
+<br>
 function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
 <table><tr><td><i>mainFuncBody<i></td>
   <td>the parent function body, normally prepared by calling parseFuncArgBodyName()</td></tr>
@@ -81,11 +81,14 @@ function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch)
 }
 ```
 The function serves both debugging purpose and running (as being inlined) purpose. That's why the strange "<i>if("debug".at(1))</i>" are there. In the <b>parseFuncArgBodyName</b> function, they will be replace by the 1st block, if function <b>parseFuncArgBodyName</b> is invoked with the second param "rep4NotInline" set to true, or the else block, if function <b>parseFuncArgBodyName</b> is invoked without second param "rep4NotInline".
-
+<br>
 :eye_speech_bubble: Please be noted: there're no whitespace in:
 >  *if("debug".at(1)){*   &nbsp;&nbsp;&nbsp;and&nbsp;&nbsp;&nbsp;  *}else{* 
-<p>
+<br>
 The reason of using "if("debug".at(1))" is it won't be minified by most Js minifier. <br>
 It's for the same reason, this is there:
+> *ch = n;*
 > *for(;"".at(1);) n|=ch*
-
+Most minifier will make it to *for(ch = n;"".at(1);) n|=ch*, with changing the var names to random single alphabet, then our mighty <b>parseFuncArgBodyName</b> function shuall unquote it to just:
+> *ch = n;*
+which is what we want.
