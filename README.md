@@ -39,7 +39,8 @@ function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
 </table>
 </p>
 #Usage Example:
-bellow function is a function supposed to be inserted as inlined function
+  <br>
+bellow function is a function supposed to be inserted as inlined function<br>
 ```
 function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch) 
 {
