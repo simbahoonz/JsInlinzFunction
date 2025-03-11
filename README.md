@@ -11,9 +11,9 @@ function <b>parseFuncArgBodyName</b>(<i>func</i>, <i>rep4NotInline</i>)<br>
   <tr><td>return</td>
     <td>
       [args, body, funcname]<br>
-        args - an array of the arg names<br>
-        body - the function body<br>
-        funcname - the function name, might be empty
+      &nbsp;&nbsp;args - an array of the arg names<br>
+      &nbsp;&nbsp;body - the function body<br>
+      &nbsp;&nbsp;funcname - the function name, might be empty
   </td></tr>
 </table>
 <p>
