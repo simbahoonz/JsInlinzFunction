@@ -1,6 +1,8 @@
 # JsInlinzFunction
 A function set to make inlinzed function using Javascript native new Function().<br>
-Normally performance is the main reason of doing this. Inlined function can avoid the function call overload.
+Normally performance is the main reason of doing this. Inlined function can avoid the function call overload.<br>
+<br>
+It's pulled from my other libarary of a fast LZW compress/uncompress implementation.
 <p>
 function <b>parseFuncArgBodyName</b>(<i>func</i>, <i>rep4NotInline</i>)<br>
 <table>
@@ -30,5 +32,9 @@ function <b>prepareInline</b>(<i>func</i>, <i>asFuncname</i>)
 </table>
 <p>
 function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
-
+<table><tr><td><i>mainFuncBody<i></td>
+  <td></td></tr>
+  <tr><td><i>inlineFuncSet</i></td><td></td></tr>
+  <tr><td>return</td><td></td></tr>
+</table>
 
