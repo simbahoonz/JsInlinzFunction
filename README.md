@@ -170,3 +170,122 @@ again, here:
 > *for(;"".at(1););*
 >
 is used to force the js minifier not to make the block to an expression, so that the inline function can correctly be inserted as statments inside a pair of { }.
+
+In the end, readBits will be expanded in the uncompress function, and new anonymouse function using the uncompress as a modal, putting readBits as inlined function will be created as following:
+
+```
+(function anonymous(i8arr,i2c,wlist,origlen
+) {
+
+        let
+            pos = 0,   //inline replace: pos = 0,
+            bi = 0;     //inline replace: bi = 0;
+
+        const
+            BORDER = 1<<(4 ? 4 : 9),     //ex. 128
+            lowbits = 4 ? 4 + 1 : 9,
+            upbits = 9 - 4,
+            lowMsk = BORDER -1,                         //ex. 127
+            i8ret = new Uint8Array(origlen);
+
+        let i=0, ch, ch2, w, bits;
+        for (; i<origlen; i++) {
+            bits = lowbits;
+            ;
+            //force the js minifier not to move up statement into if()
+            
+                //put this following for loop on top;
+                ;
+                //makes js minifier not to make it an expression, so can be inlined
+
+                
+    let _i_n = 0, 
+        _i_b1bits, _i_b1space, _i_msk, _i_sh = 0;
+
+    
+
+    do {
+        _i_b1space = 8 - (bi);
+        if ((bits)<_i_b1space) {
+            _i_b1bits = (bits);
+            _i_msk = (1 << _i_b1bits) -1;
+            _i_n |= (((i8arr)[(pos)] >> (bi)) & _i_msk) << _i_sh;
+            
+            (bi) += (bits);
+
+        } else {
+            _i_b1bits = _i_b1space;
+            _i_msk = (1 << _i_b1bits) -1;
+            _i_n |= (((i8arr)[(pos)] >> (bi)) & _i_msk) << _i_sh;
+            
+            (bi) = 0;
+            (pos)++;
+        }
+        _i_sh += _i_b1bits;
+        (bits) -= _i_b1bits;
+    } while ((bits));
+
+    
+        (ch) = _i_n;
+        ;     //so that (ch) = _i_n wont be minified
+    
+
+;if (ch & BORDER) {
+                ch &= lowMsk;
+                bits = upbits;
+                ;
+                //force the js minifier not to move up statement into if()
+                
+                    //put this following for loop on top;
+                    ;
+                    //makes js minifier not to make it an expression, so can be inlined
+
+                    
+    let _i_n = 0, 
+        _i_b1bits, _i_b1space, _i_msk, _i_sh = 0;
+
+    
+
+    do {
+        _i_b1space = 8 - (bi);
+        if ((bits)<_i_b1space) {
+            _i_b1bits = (bits);
+            _i_msk = (1 << _i_b1bits) -1;
+            _i_n |= (((i8arr)[(pos)] >> (bi)) & _i_msk) << _i_sh;
+            
+            (bi) += (bits);
+
+        } else {
+            _i_b1bits = _i_b1space;
+            _i_msk = (1 << _i_b1bits) -1;
+            _i_n |= (((i8arr)[(pos)] >> (bi)) & _i_msk) << _i_sh;
+            
+            (bi) = 0;
+            (pos)++;
+        }
+        _i_sh += _i_b1bits;
+        (bits) -= _i_b1bits;
+    } while ((bits));
+
+    
+        (ch2) = _i_n;
+        ;     //so that (ch2) = _i_n wont be minified
+    
+
+;ch |= ch2<<4;
+            }
+            
+            ch = i2c[ch];
+            if (ch<256)
+                i8ret[i] = ch
+            else {
+                w = wlist[ch-256];
+                i8ret.set(w, i);
+                i += w.length -1;
+            }
+        }
+
+        return i8ret;
+    
+})
+```
