@@ -70,14 +70,14 @@ function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch)
         bits -= b1bits;
     } while (bits);
 
-    if("debug".at(1)){
-        bI8[0] = bi;
+    if("debug".at(1)){    //this block is for the debug purpose, 
+        bI8[0] = bi;      //in this "debug" mode, the function shall be invoked as a function
         posU32[0] = pos;
         return n;    
-    }else{
-        ch = n;
+    }else{                //this block is for inline purpose
+        ch = n;           //in this "inline" mode, the function shall be embbeded into another function
         for(;"".at(1);) n|=ch ;     //so that ch = n wont be minified
     }
 }
 ```
-The function serves both debugging purpose and running (as being inlined) purpose. That's why the strange "<i>if("debug".at(1))</i>" are there. In the <b>parseFuncArgBodyName</b> function, they will be replace by the 1st block, if function <b>parseFuncArgBodyName</b> is invoked without second param "rep4NotInline", or the else block, if function <b>parseFuncArgBodyName</b> is invoked with the second param "rep4NotInline" set to true.
+The function serves both debugging purpose and running (as being inlined) purpose. That's why the strange "<i>if("debug".at(1))</i>" are there. In the <b>parseFuncArgBodyName</b> function, they will be replace by the 1st block, if function <b>parseFuncArgBodyName</b> is invoked with the second param "rep4NotInline" set to true, or the else block, if function <b>parseFuncArgBodyName</b> is invoked without second param "rep4NotInline".
