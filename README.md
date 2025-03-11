@@ -21,8 +21,8 @@ function <b>parseFuncArgBodyName</b>(<i>func</i>, <i>rep4NotInline</i>)<br>
 </table>
 <br>
 function <b>prepareInline</b>(<i>func</i>, <i>asFuncname</i>)
-<table><tr><td>func</td><td>a javascript function to be prepared for </td></tr>
-<tr><td>asFuncname</td><td>this param is used to form a RegEx to search for the supposed to be inlined function invokes.</td></tr>
+<table><tr><td>*func*</td><td>a javascript function to be prepared for </td></tr>
+<tr><td>*asFuncname*</td><td>this param is used to form a RegEx to search for the supposed to be inlined function invokes.</td></tr>
 <tr><td>return</td>
   <td>
     [regEx, bodyAssemblingFunction]<br>
