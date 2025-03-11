@@ -2,7 +2,7 @@
 A function set to make inlinzed function using Javascript native new Function().<br>
 Normally performance is the main reason of doing this. Inlined function can avoid the function call overload.<br>
 <br>
-It's pulled from my other libarary of a fast LZW compress/uncompress implementation.
+It's pulled from my other libarary of a fast LZW compress/uncompress implementation.<br><br>
 <br>
 function <b>parseFuncArgBodyName</b>(<i>func</i>, <i>rep4NotInline</i>)<br>
 <table>
