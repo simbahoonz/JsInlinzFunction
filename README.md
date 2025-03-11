@@ -166,3 +166,7 @@ which is what we want.<br>
         return i8ret;
     }
 ```
+again, here:
+> *for(;"".at(1););*
+>
+is used to force the js minifier not to make the block to an expression, so that the inline function can correctly be inserted as statments inside a pair of { }.
