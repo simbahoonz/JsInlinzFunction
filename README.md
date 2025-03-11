@@ -94,3 +94,75 @@ Most minifier will make it to *for(ch = n;"".at(1);) n|=ch*, with changing the v
 > *ch = n;* <br>
 >
 which is what we want.<br>
+
+### the example of parent function
+```
+    function uncompress(i8arr, i2c, wlist, origlen) {
+        let
+            pos = "debug".at(1) ? newUint32Array(1) : 0,   //inline replace: pos = 0,
+            bi = "debug".at(1) ? newUint8Array(1) : 0;     //inline replace: bi = 0;
+
+        const
+            BORDER = 1<<(_7BITS ? _7BITS : _9BITS),     //ex. 128
+            lowbits = _7BITS ? _7BITS + 1 : _9BITS,
+            upbits = _9BITS - _7BITS,
+            lowMsk = BORDER -1,                         //ex. 127
+            i8ret = new Uint8Array(origlen);
+
+        let i=0, ch, ch2, w, bits;
+        for (; i<origlen; i++) {
+            bits = lowbits;
+            for(;"".at(1););
+            //force the js minifier not to move up statement into if()
+            if("debug".at(1)){
+                //put this following for loop on top;
+                for(;"".at(1););
+                //makes js minifier not to make it an expression, so can be inlined
+
+                ch = readBits(i8arr, pos, bi, bits, pos, bi);
+
+            }else{
+                //put this following for loop on top;
+                for(;"".at(1););
+                //makes js minifier not to make it an expression, so can be inlined
+
+                readBits(i8arr, pos, bi, bits, pos, bi, ch);
+
+            }
+
+            if (ch & BORDER) {
+                ch &= lowMsk;
+                bits = upbits;
+                for(;"".at(1););
+                //force the js minifier not to move up statement into if()
+                if("debug".at(1)){
+                    //put this following for loop on top;
+                    for(;"".at(1););
+                    //makes js minifier not to make it an expression, so can be inlined
+
+                    ch2 = readBits(i8arr, pos, bi, bits, pos, bi);
+
+                }else{
+                    //put this following for loop on top;
+                    for(;"".at(1););
+                    //makes js minifier not to make it an expression, so can be inlined
+
+                    readBits(i8arr, pos, bi, bits, pos, bi, ch2);
+                }
+
+                ch |= ch2<<_7BITS;
+            }
+            
+            ch = i2c[ch];
+            if (ch<256)
+                i8ret[i] = ch
+            else {
+                w = wlist[ch-256];
+                i8ret.set(w, i);
+                i += w.length -1;
+            }
+        }
+
+        return i8ret;
+    }
+```
