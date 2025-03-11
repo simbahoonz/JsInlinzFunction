@@ -40,7 +40,7 @@ function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
 
 ## Usage Example:<br>
 bellow function is a function supposed to be inserted into another function as inlined<br>
-```
+```javascript
 function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch) 
 {
     let n = 0, 
@@ -96,7 +96,7 @@ Most minifier will make it to *for(ch = n;"".at(1);) n|=ch*, with changing the v
 which is what we want.<br>
 
 ### the example of parent function
-```
+```javascript
     function uncompress(i8arr, i2c, wlist, origlen) {
         let
             pos = "debug".at(1) ? newUint32Array(1) : 0,   //inline replace: pos = 0,
@@ -173,7 +173,7 @@ is used to force the js minifier not to make the block to an expression, so that
 
 In the end, readBits will be expanded in the uncompress function, and new anonymouse function using the uncompress as a modal, putting readBits as inlined function will be created as following:
 
-```
+```javascript
 (function anonymous(i8arr,i2c,wlist,origlen
 ) {
 
