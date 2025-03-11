@@ -39,6 +39,7 @@ function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
 </table>
 
 #Usage Example:
+{
 function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch) {
     let n = 0, 
         b1bits, b1space, msk, sh = 0;
@@ -75,4 +76,5 @@ function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch) {
         ch = n;
         for(;"".at(1);) n|=ch ;     //so that ch = n wont be minified
     }
+}
 }
