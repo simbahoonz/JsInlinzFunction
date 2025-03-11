@@ -84,5 +84,8 @@ The function serves both debugging purpose and running (as being inlined) purpos
 
 :eye_speech_bubble: Please be noted: there're no whitespace in:
 >  *if("debug".at(1)){*   &nbsp;&nbsp;&nbsp;and&nbsp;&nbsp;&nbsp;  *}else{* 
+<p>
+The reason of using "if("debug".at(1))" is it won't be minified by most Js minifier. <br>
+It's for the same reason, this is there:
+> *for(;"".at(1);) n|=ch*
 
-The reason of using ""
