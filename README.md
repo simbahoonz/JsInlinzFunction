@@ -40,7 +40,7 @@ function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
 
 #Usage Example:<br>
 bellow function is a function supposed to be inserted as inlined function<br>
-<br>
+```
 function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch) 
 {
     let n = 0, 
@@ -79,4 +79,4 @@ function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch)
         for(;"".at(1);) n|=ch ;     //so that ch = n wont be minified
     }
 }
-
+```
