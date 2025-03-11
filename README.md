@@ -38,8 +38,9 @@ function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
   <tr><td>return</td><td>A string of the result function body, ready to be used in "new Fuction(...args, body)"</td></tr>
 </table>
 
-#Usage Example:
-{
+#Usage Example:<br>
+bellow function is a function supposed to be inserted as inlined function<br>
+<br>
 function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch) {
     let n = 0, 
         b1bits, b1space, msk, sh = 0;
@@ -77,4 +78,4 @@ function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch) {
         for(;"".at(1);) n|=ch ;     //so that ch = n wont be minified
     }
 }
-}
+
