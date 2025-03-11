@@ -1,5 +1,6 @@
 # JsInlinzFunction
-A function set to make inlinzed function using Javascript native new Function().
+A function set to make inlinzed function using Javascript native new Function().<br>
+Normally performance is the main reason of doing this. Inlined function can avoid the function call overload.
 <p>
 function <b>parseFuncArgBodyName</b>(<i>func</i>, <i>rep4NotInline</i>)<br>
 <table>
@@ -23,9 +24,11 @@ function <b>prepareInline</b>(<i>func</i>, <i>asFuncname</i>)
 <tr><td>return</td>
   <td>
     [regEx, bodyAssemblingFunction]<br>
-    &nbsp;&nbsp;regEx - a RegEx used to search for function calling to this inline function
+    &nbsp;&nbsp;regEx - a RegEx used to search for function calling to this inline function<br>
     &nbsp;&nbsp;bodyAssemblingFunction - a function that put the arguments into the body, to <b>inlinz</b> the function
   </td></tr>
 </table>
+<p>
+function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
 
 
