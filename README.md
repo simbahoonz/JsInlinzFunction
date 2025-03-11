@@ -33,8 +33,8 @@ function <b>prepareInline</b>(<i>func</i>, <i>asFuncname</i>)
 <p>
 function <b>inlinez</b>(<i>mainFuncBody</i>, <i>inlineFuncSet</i>)
 <table><tr><td><i>mainFuncBody<i></td>
-  <td></td></tr>
-  <tr><td><i>inlineFuncSet</i></td><td></td></tr>
-  <tr><td>return</td><td></td></tr>
+  <td>the parent function body, normally prepared by calling parseFuncArgBodyName()</td></tr>
+  <tr><td><i>inlineFuncSet</i></td><td>An javascript object, each property contains a value from prepareInline(), which is an array of [regEx, bodyAssemblingFunction], property name is not used.</td></tr>
+  <tr><td>return</td><td>A string of the result function body, ready to be used in "new Fuction(...args, body)"</td></tr>
 </table>
 
