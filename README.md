@@ -81,14 +81,16 @@ function readBitsDebug(i8buff, posU32, bI8, bits, pos, bi, ch)
 }
 ```
 The function serves both debugging purpose and running (as being inlined) purpose. That's why the strange "<i>if("debug".at(1))</i>" are there. In the <b>parseFuncArgBodyName</b> function, they will be replace by the 1st block, if function <b>parseFuncArgBodyName</b> is invoked with the second param "rep4NotInline" set to true, or the else block, if function <b>parseFuncArgBodyName</b> is invoked without second param "rep4NotInline".
-<br>
+<br><br>
 :eye_speech_bubble: Please be noted: there're no whitespace in:
->  *if("debug".at(1)){*   &nbsp;&nbsp;&nbsp;and&nbsp;&nbsp;&nbsp;  *}else{* 
-<br>
+>  *if("debug".at(1)){*   &nbsp;&nbsp;&nbsp;and&nbsp;&nbsp;&nbsp;  *}else{*
+> 
 The reason of using "if("debug".at(1))" is it won't be minified by most Js minifier. <br>
-It's for the same reason, this is there:
-> *ch = n;*
-> *for(;"".at(1);) n|=ch*
-Most minifier will make it to *for(ch = n;"".at(1);) n|=ch*, with changing the var names to random single alphabet, then our mighty <b>parseFuncArgBodyName</b> function shuall unquote it to just:
-> *ch = n;*
-which is what we want.
+It's for the same reason, this is there:<br>
+> *ch = n;* <br>
+> *for(;"".at(1);) n|=ch* <br>
+>
+Most minifier will make it to *for(ch = n;"".at(1);) n|=ch*, with changing the var names to random single alphabet, then our mighty <b>parseFuncArgBodyName</b> function shuall unquote it to just: <br>
+> *ch = n;* <br>
+>
+which is what we want.<br>
