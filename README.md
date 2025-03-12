@@ -295,8 +295,7 @@ let inlineFunctions = {};
 inlineFunctions.readBits = prepareInline(readBitsDebug, 'readBits');
 const
     uncprFunc = parseFuncArgBodyName(uncompress);
-let
-    funcBody = inlinez(uncprFunc[1], inlineFunctions);
+let funcBody = inlinez(uncprFunc[1], inlineFunctions);
 funcBody = funcBody.replace(regEx_7BITS, 4);
 funcBody = funcBody.replace(regEx_9BITS, 9);
 
