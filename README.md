@@ -302,4 +302,4 @@ funcBody = funcBody.replace(regEx_9BITS, 9);
 const
     finalFunction = new Function(...uncprFunc[0], funcBody);
 ```
-Then, you can use **finalFunction** to do the same thing as the modal function do, but faster.
+Then, you can use **finalFunction** to do the same thing as the modal function do, but faster. Also, you can generate a batch of different versions of the same function.
