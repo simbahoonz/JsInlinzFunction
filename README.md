@@ -289,3 +289,18 @@ In the end, readBits will be expanded in the uncompress function, and new anonym
     
 })
 ```
+The code leads to the generating of previous code looks like this:<br>
+```javascript
+let inlineFunctions = {};
+inlineFunctions.readBits = prepareInline(readBitsDebug, 'readBits');
+const
+    uncprFunc = parseFuncArgBodyName(uncompress);
+let
+    funcBody = inlinez(uncprFunc[1], inlineFunctions);
+funcBody = funcBody.replace(regEx_7BITS, 4);
+funcBody = funcBody.replace(regEx_9BITS, 9);
+
+const
+    finalFunction = new Function(...uncprFunc[0], funcBody);
+```
+Then, you can use **finalFunction** to do the same thing as the modal function do, but faster.
